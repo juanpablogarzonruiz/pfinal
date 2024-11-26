@@ -2,7 +2,7 @@ const mysql = require("mysql2");
 const db = mysql.createConnection ({
     host: "127.0.0.1",
     user: "jpgarzon",
-    password: "ejemploclave",
+    password: "juan1973",
     database: "cursos",
 });
 // ejemplo de cambio de comentario .....
