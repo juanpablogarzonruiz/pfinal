@@ -3,10 +3,6 @@ function mostrar(resultado){
     let salida="";
     let elemento="";
 
-    console.log ("lo que trajo es " + transformado +
-                " y la longitud de elementos es " + transformado.length +
-                "");
-
     for (let vc in transformado){
             elemento = "Código: " + transformado[vc].codigo;
             elemento = elemento + "<br>Nombre: " + transformado[vc].nombre;
@@ -24,7 +20,7 @@ function cargar(){
           method: "GET",
           redirect: "follow"
         };
-        fetch("http://localhost:8888/.netlify/functions/productos", requestOptions)
+        fetch("https://bootcamp258.netlify.app/.netlify/functions/productos", requestOptions)
           .then((response) =>
             response.text())
           .then((resultado) =>
