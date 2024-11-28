@@ -1,3 +1,63 @@
+function mostrar(resultado){
+    let transformado = JSON.parse(resultado);
+    let salida="";
+    let elemento="";
+
+    console.log ("lo que trajo es " + transformado +
+                " y la longitud de elementos es " + transformado.length +
+                "");
+
+    for (let vc in transformado){
+            elemento = "Código: " + transformado[vc].codigo;
+            elemento = elemento + "<br>Nombre: " + transformado[vc].nombre;
+            elemento = elemento + "<br>Descripción: " + transformado[vc].descripcion;
+            elemento = elemento + "<br>$ " + transformado[vc].precio;
+            salida = salida  + elemento + "<br><br>";
+    }
+    document.getElementById("resultado").innerHTML = salida;
+}
+
+function cargar(){
+    event.preventDefault();
+    if (document.getElementById("criterio").value == "*"){
+        const requestOptions = {
+          method: "GET",
+          redirect: "follow"
+        };
+        fetch("http://localhost:8888/.netlify/functions/productos", requestOptions)
+          .then((response) =>
+            response.text())
+          .then((resultado) =>
+            mostrar(resultado))
+          .catch((error) =>
+            console.error(error));
+    }else {
+        document.getElementById("resultado").innerHTML = "No existen"+          " productos que cumplan ese criterio";
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function guardar(){
 
     let nota=0.0;
@@ -27,38 +87,13 @@ function guardar(){
       .then((result) => console.log(result))
       .catch((error) => console.error(error));
 }
-//eje
-function cargar(resultado){
-    let transformado = JSON.parse(resultado);
-    var salida="";
-    var elemento="";
 
-    for (let vc in transformado){
-        elemento = "ID: " + transformado[vc].id;
-        elemento = elemento + "<br>Documento de identidad: " + transformado[vc].dni;
-        elemento = elemento + "<br>Nombres: " + transformado[vc].nombre;
-        elemento = elemento + "<br>Apellidos: " + transformado[vc].apellidos;
-        elemento = elemento + "<br>Correo electrónico: " + transformado[vc].email;
-        salida = salida  + elemento + "<br><br>";
-    }
-    document.getElementById("rta").innerHTML = salida;
-}
 
-function listar(){
-    event.preventDefault();
-    const requestOptions = {
-      method: "GET",
-      redirect: "follow"
-    };
-    fetch("http://localhost:8888/.netlify/functions/estudiantes", requestOptions)
-      .then((response) =>
-        response.text())
-      .then((result) =>
-        cargar(result))
-      .catch((error) =>
-        console.error(error));
 
-}
+
+
+
+
 
 function respuesta_actualizar(resultado){
     document.getElementById("rtaA").innerHTML = resultado;

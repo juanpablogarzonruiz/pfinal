@@ -3,9 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <script type="text/javascript" src="./frontend/script.js"></script>
+
 </head>
 <body>
 
+<div style="margin: 5px; border: 1px solid black; padding: 10px;">
+<label for="criterio">Buscar por:</label>
+<input type="text" id="criterio"> <br>
+<input type="submit" onclick="cargar()" value="Aceptar">
+</div>
+<div id="resultado" style="margin: 5px; border: 1px solid black; padding: 10px;">
+</div>
+<!--
+
+primera opción: botón -----Label: Cargar productos......onclick="cargar()"
+segunda opción: caja ....margin,padding,....borde visible.
+label: Filtrar.
+Caja de texto: id="criterio"
+Aceptar--------onclick="cargar()"
+Cancelar-------onclick="limpiar()"
+
+-->
+
+<!--
 <h1>Adicionar estudiante</h1>
 <div>
     <form id="adicionarEstudiante">
@@ -90,6 +110,6 @@
         <input type="submit" onclick="eliminar_estudiante()" value="Aceptar">
     </form>
 </div>
-
+-->
 </body>
 </html>
